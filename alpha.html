@@ -1,11 +1,66 @@
 <!doctype html>
 <html lang="en">
+  <style>    
+    .sidenav {
+      height: 100%;
+      width: 250px;
+      position: fixed;
+      z-index: 1;
+      top: 90px;
+      left: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      padding-top: 20px;
+    }
+
+    .sidenav a {
+      padding: 6px 6px 20px 16px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #818181;
+      display: block;
+    }
+
+    .sidenav a:hover {
+      color: #f1f1f1;
+    }
+
+    .title {
+      margin-left: 0;
+      font-size: 28px; /* Increased text to enable scrolling */
+      padding: 0px 10px;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: 400px 400px;
+      padding: 0px;
+      margin-left: 280px;
+      width:50%;
+    }
+    @media screen and (max-height: 450px) {
+      .sidenav {padding-top: 15px;}
+      .sidenav a {font-size: 18px;}
+    }
+    </style>
   <head>
     <meta charset="utf-8">
     <title>Children STT - The Alphabet</title>
   </head>
-  <body style = "background-color: beige;">
-  
+  <body style = "background-color: beige; font-family: Lato, sans-serif;">
+    <div class="sidenav">
+      <a href="#about">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#clients">Clients</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="title">
+      <body style = "background-color: beige;">
+        <h1 style="text-align: left; font-size:36px">Children STT</h1>
+        <p style="text-align: center;"></p>
+    </div>
+    
     <h1 style="text-align: center; font-size:4.5vw">Lesson 1: The Alphabet</h1>
 
     <center><iframe width="420" height="315"
@@ -15,5 +70,6 @@
     <p style="text-align: center;"></p> <!-- Possibly use TTS for saying the description and a replay functionality -->
 
   </body>
+
   <a href="alpha-a.html" style="float: right; font-size:3vw">Next</a>
 </html>
