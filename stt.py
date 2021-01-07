@@ -19,7 +19,7 @@ def main():
             if (r.recognize_google(audio) == "Daniel is gay"):
                 print("Very true brother")
             else:
-                print("You have said \n" + r.recognize_google(audio))
+                print("You have said: " + r.recognize_google(audio))
  
         except Exception as e:
             print("Error:  " + str(e))
