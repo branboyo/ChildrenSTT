@@ -30,4 +30,4 @@ def check(string):
         # write audio
         with open("recorded.wav", "wb") as f:
             f.write(audio.get_wav_data())
- 
+
