@@ -3,8 +3,11 @@ import speech_recognition as sr
 # pip3 install pyaudio
 # pip3 install speechrecognition
 # brew install portaudio
+
+# To test in terminal: 
+# >>> python3, >>> from stt import check, >>> check("string")
  
-def main():
+def check(string):
  
     r = sr.Recognizer()
  
@@ -13,13 +16,13 @@ def main():
  
         print("Listening...")
  
-        audio = r.listen(source, phrase_time_limit=2)
- 
+        audio = r.listen(source, phrase_time_limit=3)
+        trans = r.recognize_google(audio)
         try:
-            if (r.recognize_google(audio) == "Daniel is gay"):
+            if (trans == string):
                 print("Very true brother")
             else:
-                print("You have said \n" + r.recognize_google(audio))
+                print("You have said:" + trans)
  
         except Exception as e:
             print("Error:  " + str(e))
@@ -28,4 +31,3 @@ def main():
         with open("recorded.wav", "wb") as f:
             f.write(audio.get_wav_data())
  
-main()
