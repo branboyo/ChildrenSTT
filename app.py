@@ -44,3 +44,5 @@ def check(string):
         with open("recorded.wav", "wb") as f:
             f.write(audio.get_wav_data())
 
+if __name__ == "__main__":
+    app.run()
