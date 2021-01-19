@@ -71,7 +71,9 @@
     </iframe></center>
 
     <button type="button" style = "position: absolute; left: 45%; width: 10%; height: 10%; font-size: 2vw" onclick="test()">Start test</button>
+    <div id="result" style = "position: absolute; left: 280px">Hello</div>
   </body>
+
 
   <a href="alpha.html" style="position: absolute; left: 280px; bottom: 1vw; font-size:3vw">Back</a>
   <a href="alpha-b.html" style="position: absolute; right: 20px; bottom: 1vw; font-size:3vw">Next</a>
@@ -85,11 +87,14 @@ function test() {
   recognition.start();
 
   recognition.onresult = function(event) {
-    console.log(event.results[0][0].transcript).toUpperCase();
-    if (event.results[0][0].transcript.toUpperCase().localeCompare("APPLE") == 0){
+    var x = document.getElementById("result");
+    console.log(event.results[0][0].transcript);
+    if (event.results[0][0].transcript.localeCompare("Apple") == 0){
       console.log("Correct");
+      x.innerHTML = "Correct!"
     } else {
       console.log("Incorrect");
+      x.innerHTML = "Incorrect, try again!"
     }
   };
 }
