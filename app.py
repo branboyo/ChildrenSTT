@@ -12,13 +12,23 @@ app = Flask(__name__)
 def main():
     return render_template('home.html')
 
-@app.route('/alpha.html')
+@app.route('/alpha')
 def alpha():
     return render_template('alpha.html')
 
-@app.route('/apple.html')
+@app.route('/alpha/apple')
 def apple():
-    return render_template('apple.html')
+    return render_template('lesson.html', key = 'Apple', next = '/alpha/atlas', lesson = '1', part = '1')
+
+@app.route('/alpha/atlas')
+def atlas():
+    return render_template('lesson.html', key = 'Atlas', next = '/alpha/aunt', lesson = '1', part = '2')
+
+@app.route('/alpha/aunt')
+def ant():
+    return render_template('lesson.html', key = 'Aunt', next = '/unregistered', lesson = '1', part = '3')
+
+
 
 if __name__ == "__main__":
     app.run()
