@@ -63,14 +63,14 @@
     </div>
 
     <h1 style="text-align: center; font-size:4.5vw">Lesson {{lesson}}, Part {{part}}: {{ key }}</h1> <!--Uses variable given in app.py to show title-->
-
-    <button type="button" style = "position: absolute; left: 45%; top: 40%; width: 10%; height: 10%; font-size: 2vw" onclick="test()">Start test</button>
-    <div id="result" style = "text-align: center">Click on Start Test and say "{{ key }}"</div> 
+    <iframe style = "position: absolute; left: 25%; top: 38%" width="400" height="300" src= "{{ yt }}"></iframe>
+    <button type="button" style = "position: absolute; left: 70%; top: 60%; width: 10%; height: 10%; font-size: 2vw" onclick="test()">Start test</button>
+    <div id="result" style = "position: absolute; left: 66%; top: 45%">Click on Start Test and say "{{ key }}"</div> 
     <!--Uses variable given in app.py to show instructions, changes when micorphone input is given to show results-->
   </body>
 
 
-  <a href="alpha.html" style="position: absolute; left: 280px; bottom: 1vw; font-size:3vw">Back</a>
+  <a href={{back}} style="position: absolute; left: 280px; bottom: 1vw; font-size:3vw">Back</a>
   <span id="Next"></span> <!--Becomes href and appears when correct pronunciation is fed into the evaluator-->
   
 

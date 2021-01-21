@@ -8,6 +8,7 @@ from flask import Flask, render_template, request
 # To test in terminal: 
 # >>> python3, >>> from stt import check, >>> check("string")
 app = Flask(__name__)
+
 @app.route('/')
 def main():
     return render_template('home.html')
@@ -18,15 +19,15 @@ def alpha():
 
 @app.route('/alpha/apple')
 def apple():
-    return render_template('lesson.html', key = 'Apple', next = '/alpha/atlas', lesson = '1', part = '1')
+    return render_template('lesson.html', key = 'Apple', next = '/alpha/atlas', back = '/alpha', lesson = '1', part = '1', yt = 'https://www.youtube.com/embed/491-YZrgjxk?rel=0')
 
 @app.route('/alpha/atlas')
 def atlas():
-    return render_template('lesson.html', key = 'Atlas', next = '/alpha/aunt', lesson = '1', part = '2')
+    return render_template('lesson.html', key = 'Atlas', next = '/alpha/aunt', back = '/alpha/apple', lesson = '1', part = '2', yt = 'https://www.youtube.com/watch?v=_KMjkuDHWgk?rel=0' )
 
 @app.route('/alpha/aunt')
 def ant():
-    return render_template('lesson.html', key = 'Aunt', next = '/unregistered', lesson = '1', part = '3')
+    return render_template('lesson.html', key = 'Aunt', next = '/unregistered', back = '/alpha/atlas', lesson = '1', part = '3', yt = 'https://www.youtube.com/watch?v=r356xkret6I?rel=0')
 
 
 
