@@ -23,11 +23,11 @@ def apple():
 
 @app.route('/alpha/atlas')
 def atlas():
-    return render_template('lesson.html', key = 'Atlas', next = '/alpha/aunt', back = '/alpha/apple', lesson = '1', part = '2', yt = 'https://www.youtube.com/watch?v=_KMjkuDHWgk?rel=0' )
+    return render_template('lesson.html', key = 'Atlas', next = '/alpha/aunt', back = '/alpha/apple', lesson = '1', part = '2', yt = 'https://www.youtube.com/embed/r356xkret6I?rel=0' )
 
 @app.route('/alpha/aunt')
 def ant():
-    return render_template('lesson.html', key = 'Aunt', next = '/unregistered', back = '/alpha/atlas', lesson = '1', part = '3', yt = 'https://www.youtube.com/watch?v=r356xkret6I?rel=0')
+    return render_template('lesson.html', key = 'aunt', next = '/unregistered', back = '/alpha/atlas', lesson = '1', part = '3', yt = 'aaa')
 
 
 
