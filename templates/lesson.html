@@ -65,7 +65,7 @@
     <h1 style="text-align: center; font-size:4.5vw">Lesson {{lesson}}, Part {{part}}: {{ key }}</h1> <!--Uses variable given in app.py to show title-->
     <iframe style = "position: absolute; left: 25%; top: 38%" width="400" height="300" src= "{{ yt }}"></iframe>
     <button type="button" style = "position: absolute; left: 70%; top: 60%; width: 10%; height: 10%; font-size: 2vw" onclick="test()">Start test</button>
-    <div id="result" style = "position: absolute; left: 66%; top: 45%">Click on Start Test and say "{{ key }}"</div> 
+    <div id="result" style = "position: absolute; left: 66%; top: 45%">Click on Start Test and say "{{ key }}"</div>
     <!--Uses variable given in app.py to show instructions, changes when micorphone input is given to show results-->
   </body>
 
@@ -76,6 +76,15 @@
 
 <script>
 function test() { 
+  navigator.mediaDevices.getUserMedia({ audio: true })
+      .then(function(stream) {
+        console.log('Microphone accessed')
+      })
+      .catch(function(err) {
+        console.log('Microphone access failed')
+      });
+
+    
   var recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)();
   recognition.lang = 'en-US';
   recognition.interimResults = false;
@@ -89,9 +98,11 @@ function test() {
     console.log(event.results[0][0].transcript);
 
     
-    if (event.results[0][0].transcript.localeCompare("{{key}}") == 0){ //Compares audio input that's converted to a string to what the lesson is testing
+    if (event.results[0][0].transcript.toUpperCase().localeCompare("{{key}}") == 0){ //Compares audio input that's converted to a string to what the lesson is testing
       console.log("Correct");
-      x.innerHTML = "Correct!"
+      x.innerHTML = 'Correct!'
+      x.removeAttribute('style');
+      x.setAttribute('style','position: absolute; left: 73%; top: 45%');
 
       //Next button appears when the user gets the word correct
       document.getElementById("Next").innerHTML = '<a href="{{next}}" style="position: absolute; right: 20px; bottom: 1vw; font-size:3vw">Next</a>';
@@ -99,7 +110,9 @@ function test() {
 
     } else {
       console.log("Incorrect");
-      x.innerHTML = "Incorrect, try again!"
+      x.innerHTML = 'Incorrect, try again!'
+      x.removeAttribute('style');
+      x.setAttribute('style','position: absolute; left: 70%; top: 45%');
     }
   };
 }
