@@ -1,9 +1,9 @@
-import speech_recognition as sr
+
 from flask import Flask, render_template, request
 # Requires python 3.0+
 # pip3 install pyaudio
 # pip3 install speechrecognition
-# brew install portaudio
+# brew install portaudio∏
 
 # To test in terminal: 
 # >>> python3, >>> from stt import check, >>> check("string")
